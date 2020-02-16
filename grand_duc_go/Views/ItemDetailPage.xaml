@@ -1,9 +1,26 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:d="http://xamarin.com/schemas/2014/forms/design" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d" x:Class="grand_duc_go.Views.ItemDetailPage" Title="{Binding Title}">
-    <StackLayout Spacing="20" Padding="15">
-        <Label Text="Text:" FontSize="Medium" />
-        <Label Text="{Binding Item.Text}" d:Text="Item name" FontSize="Small" />
-        <Label Text="Description:" FontSize="Medium" />
-        <Label Text="{Binding Item.Description}" d:Text="Item description" FontSize="Small" />
-    </StackLayout>
-</ContentPage>
+              
+              <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                           xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+                           xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d"
+                           x:Class="grand_duc_go.Views.ItemDetailPage" Title="{Binding Title}"
+                           xmlns:vm="clr-namespace:grand_duc_go.ViewModels">
+                  <ContentPage.ToolbarItems>
+                      <ToolbarItem Text="Scan" Clicked="ScanClicked"/>
+                  </ContentPage.ToolbarItems>
+                  <StackLayout>
+                      <Image Source="{Binding Obj.Image}" />
+                      <Label HorizontalTextAlignment="Center" Text="{Binding Obj.Name}" FontSize="Large" />
+                      <Frame Margin="10" IsVisible="{Binding Obj.NotUnlocked}">
+                          <Label>Please find the QR Code associated with this Landmark before continuing.</Label>
+                      </Frame>
+                      <ScrollView IsVisible="{Binding Obj.Unlocked}">
+                          <StackLayout>
+                              <Label Margin="10" Text="{Binding Obj.Text}">
+                              </Label>
+                              <Button IsVisible="{Binding Obj.NotCompleted}" Text="Start Quiz" x:Name="Button"></Button>
+                              <Label Margin="25"  Padding="5" IsVisible="{Binding Obj.QuizCompleted}" Text="Congratulations! You already finished this challenge" TextColor="White" BackgroundColor="Lime" />
+                          </StackLayout>
+                      </ScrollView>
+                  </StackLayout>
+              </ContentPage>

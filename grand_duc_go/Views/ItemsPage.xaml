@@ -1,14 +1,39 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:d="http://xamarin.com/schemas/2014/forms/design" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d" x:Class="grand_duc_go.Views.ItemsPage" Title="{Binding Title}" x:Name="BrowseItemsPage">
+
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d"
+             x:Class="grand_duc_go.Views.ItemsPage" xmlns:vm="clr-namespace:grand_duc_go.ViewModels" Title="{Binding Title}" x:Name="BrowseItemsPage">
+    <ContentPage.BindingContext>
+        <vm:ItemsViewModel/>
+    </ContentPage.BindingContext>
     <ContentPage.ToolbarItems>
-        <ToolbarItem><Label>Button</Label></ToolbarItem>
+        <ToolbarItem Text="Scan" Clicked="ScanClicked"/>
     </ContentPage.ToolbarItems>
-    <StackLayout>
-        <Frame CornerRadius="20" Margin="15">
-            <StackLayout>
-                <Image Source="Hz.png"></Image>
-                <Label>Hint</Label>
-            </StackLayout>
-        </Frame>
-    </StackLayout>
+    <ScrollView>
+        <StackLayout x:Name="StackLayout">
+            <Frame CornerRadius="20" Margin="15">
+                <StackLayout >
+                    <Image Source="Hz.png" />
+                    <Label></Label>
+                </StackLayout>
+            </Frame>
+            <Frame CornerRadius="20" Margin="15">
+                <StackLayout>
+                    <Image Source="KM.png" />
+                    <ContentView BackgroundColor="Red" Padding="10" Opacity="0.4">
+                        <Label TextColor="White">A cliff with loopholes</Label>
+                    </ContentView>
+                </StackLayout>
+            </Frame>
+            <Frame CornerRadius="20" Margin="15">
+                <StackLayout>
+                    <Image Source="Palais.png" />
+                    <ContentView BackgroundColor="Red" Padding="10" Opacity="0.4">
+                        <Label TextColor="White">The Duke’s office</Label>
+                    </ContentView>
+                </StackLayout>
+            </Frame>
+        </StackLayout>
+    </ScrollView>
 </ContentPage>

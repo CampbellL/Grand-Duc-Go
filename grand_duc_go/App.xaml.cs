@@ -14,7 +14,7 @@ namespace grand_duc_go
             InitializeComponent();
 
             DependencyService.Register<MockDataStore>();
-            MainPage = new MainPage();
+            MainPage = new NavigationPage(new ItemsPage());
         }
 
         protected override void OnStart()

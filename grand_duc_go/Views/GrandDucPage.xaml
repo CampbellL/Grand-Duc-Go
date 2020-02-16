@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="grand_duc_go.Views.GrandDucPage">
+
+    <StackLayout Padding="0,40">
+
+
+        <StackLayout Padding="80,25">
+            <Image Source="asset_logo.png"
+                   HorizontalOptions="Center"/>
+        </StackLayout>
+
+        <StackLayout Orientation="Horizontal"
+                     Padding="50,25">
+            <Label Text="Name:   "
+                   TextColor="Black"
+                   FontSize="Medium"
+                   FontAttributes="Bold"
+                   HorizontalTextAlignment="Start"/>
+
+            <Entry Keyboard="Text"
+                   Placeholder="enter true or fake name"
+                   MaxLength="20"
+                   VerticalOptions="Start"/>
+        </StackLayout>
+        <StackLayout Orientation="Horizontal"
+                     Padding="50,10">
+            <CheckBox IsChecked="false"
+                      HorizontalOptions="Center"
+                      VerticalOptions="Start" />
+            <Label Text="Duke"
+                   TextColor="Black"
+                   FontSize="Medium"
+                   FontAttributes="Bold"
+                   HorizontalTextAlignment="Start"/>
+        </StackLayout>
+        <StackLayout Orientation="Horizontal"
+                     Padding="50,10">
+            <CheckBox IsChecked="false"
+                      HorizontalOptions="Center"
+                      VerticalOptions="Start"/>
+            <Label Text="Duchess"
+                   TextColor="Black"
+                   FontSize="Medium"
+                   FontAttributes="Bold"
+                   HorizontalTextAlignment="Start"/>
+        </StackLayout>
+
+        <Button Text="START"
+                VerticalOptions="EndAndExpand"
+                BackgroundColor="SeaGreen"
+                BorderColor="DarkSlateGray"
+                BorderWidth="0.5"
+                TextColor="Azure"
+                Clicked="Button_OnClicked"
+        />
+
+    </StackLayout>
+
+</ContentPage>

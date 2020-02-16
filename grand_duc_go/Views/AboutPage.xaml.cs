@@ -18,17 +18,12 @@ namespace grand_duc_go.Views
 
         private async void Button_OnClicked(object sender, EventArgs e)
         {
-            MobileBarcodeScanningOptions optionsDefault = new MobileBarcodeScanningOptions();
-            MobileBarcodeScanningOptions optionsCustom = new MobileBarcodeScanningOptions();
 
-            MobileBarcodeScanner scanner = new MobileBarcodeScanner()
-            {
-                TopText = "Scan the QR Code",
-                BottomText = "Please Wait",
-            };
+        }
 
-            var scanResult = await scanner.Scan(optionsCustom);
-            DisplayAlert("Code",scanResult.Text,"Okayy");
+        private async void NavigateButton_OnClicked(object sender, EventArgs e)
+        {
+            await Navigation.PushModalAsync(new GrandDucPage());
         }
     }
 }

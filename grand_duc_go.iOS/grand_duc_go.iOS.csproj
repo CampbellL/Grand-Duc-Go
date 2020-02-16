@@ -113,7 +113,12 @@
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon20.png">
       <Visible>false</Visible>
     </ImageAsset>
+    <BundleResource Include="Resources\asset_grand_duc.png" />
+    <BundleResource Include="Resources\asset_logo.png" />
+    <BundleResource Include="Resources\GG.png" />
     <BundleResource Include="Resources\Hz.png" />
+    <BundleResource Include="Resources\KM.png" />
+    <BundleResource Include="Resources\Palais.png" />
     <BundleResource Include="Resources\tab_about.png" />
     <BundleResource Include="Resources\tab_about%402x.png" />
     <BundleResource Include="Resources\tab_about%403x.png" />

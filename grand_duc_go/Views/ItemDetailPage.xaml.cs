@@ -1,5 +1,6 @@
 ﻿using System;
 using System.ComponentModel;
+using System.Linq;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -14,25 +15,26 @@ namespace grand_duc_go.Views
     public partial class ItemDetailPage : ContentPage
     {
         ItemDetailViewModel viewModel;
+        private void ScanClicked(object sender, EventArgs e)
+        {
+            QrReader.ReadQrAsync();
+        }
+        
 
         public ItemDetailPage(ItemDetailViewModel viewModel)
         {
             InitializeComponent();
-
             BindingContext = this.viewModel = viewModel;
+            this.FindByName<Button>("Button").Clicked += (e, s) =>
+            {
+                Navigation.PushAsync(new QuizManagerPage(viewModel.Obj));
+            };
         }
 
         public ItemDetailPage()
         {
             InitializeComponent();
-
-            var item = new Item
-            {
-                Text = "Item 1",
-                Description = "This is an item description."
-            };
-
-            viewModel = new ItemDetailViewModel(item);
+            viewModel = new ItemDetailViewModel(Objective.GetObjectives()[0]);
             BindingContext = viewModel;
         }
     }

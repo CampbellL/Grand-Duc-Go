@@ -68,6 +68,10 @@
     <None Include="Properties\AndroidManifest.xml" />
   </ItemGroup>
   <ItemGroup>
+    <AndroidResource Include="Resources\drawable\asset_grand_duc.png" />
+    <AndroidResource Include="Resources\drawable\asset_logo.png" />
+    <AndroidResource Include="Resources\drawable\GG.png" />
+    <AndroidResource Include="Resources\drawable\Palais.png" />
     <AndroidResource Include="Resources\layout\Tabbar.xml" />
     <AndroidResource Include="Resources\layout\Toolbar.xml" />
     <AndroidResource Include="Resources\values\styles.xml" />
@@ -91,6 +95,12 @@
       <Project>{19666689-02CE-47EC-B9A2-A7A28F0A29C2}</Project>
       <Name>grand_duc_go</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\Hz.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\KM.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
 </Project>

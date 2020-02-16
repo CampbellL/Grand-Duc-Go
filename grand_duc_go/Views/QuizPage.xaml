@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="grand_duc_go.Views.QuizPage" xmlns:vm="clr-namespace:grand_duc_go.ViewModels">
+    <ContentPage.Content>
+        <StackLayout VerticalOptions="Center" HorizontalOptions="Center" Margin="15">
+            <Label FontSize="24" Text="{Binding PageQuiz.Question}"
+                   VerticalOptions="CenterAndExpand"
+                   HorizontalOptions="Center" HorizontalTextAlignment="Center"  Margin="0,0,0,15"/>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width=".35*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <CheckBox x:Name="Answer1" CheckedChanged="Checkbox" Grid.Row="1" Grid.Column="0" VerticalOptions="End" StyleId="1"/>
+                <Label Grid.Row="1"   Grid.Column="1" Text="{Binding PageQuiz.Answers[0].Text}" VerticalOptions="Center" />
+
+                <CheckBox x:Name="Answer2" Grid.Row="2" CheckedChanged="Checkbox" Grid.Column="0" VerticalOptions="Center" Color="Red" StyleId="2"/>
+                <Label Grid.Row="2"  Grid.Column="1" Text="{Binding PageQuiz.Answers[1].Text}" VerticalOptions="Center" />
+
+                <CheckBox x:Name="Answer3" Grid.Row="3" CheckedChanged="Checkbox" Grid.Column="0" Color="Green" VerticalOptions="Center" StyleId="3"/>
+                <Label Grid.Row="3"  Grid.Column="1" Text="{Binding PageQuiz.Answers[2].Text}" VerticalOptions="Center" />
+            </Grid>
+            <Button Text="Submit" Clicked="Submit" BackgroundColor="Blue" TextColor="White" Margin="25"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
