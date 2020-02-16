@@ -6,11 +6,11 @@ namespace grand_duc_go.ViewModels
 {
     public class ItemDetailViewModel : BaseViewModel
     {
-        public Item Item { get; set; }
-        public ItemDetailViewModel(Item item = null)
+        public Objective Obj { get; set; }
+        public ItemDetailViewModel(Objective obj = null)
         {
-            Title = item?.Text;
-            Item = item;
+            Title = Obj?.Name;
+            Obj = obj;
         }
     }
 }

@@ -1,30 +1,39 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:d="http://xamarin.com/schemas/2014/forms/design" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d" x:Class="grand_duc_go.Views.ItemsPage" Title="{Binding Title}" x:Name="BrowseItemsPage">
+
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d"
+             x:Class="grand_duc_go.Views.ItemsPage" xmlns:vm="clr-namespace:grand_duc_go.ViewModels" Title="{Binding Title}" x:Name="BrowseItemsPage">
+    <ContentPage.BindingContext>
+        <vm:ItemsViewModel/>
+    </ContentPage.BindingContext>
     <ContentPage.ToolbarItems>
-        <ToolbarItem Text="Add" Clicked="AddItem_Clicked" />
+        <ToolbarItem Text="Scan" Clicked="ScanClicked"/>
     </ContentPage.ToolbarItems>
-    <StackLayout>
-        <ListView x:Name="ItemsListView" ItemsSource="{Binding Items}" VerticalOptions="FillAndExpand" HasUnevenRows="true" RefreshCommand="{Binding LoadItemsCommand}" IsPullToRefreshEnabled="true" IsRefreshing="{Binding IsBusy, Mode=OneWay}" CachingStrategy="RecycleElement" ItemSelected="OnItemSelected">
-            <d:ListView.ItemsSource>
-                <x:Array Type="{x:Type x:String}">
-                    <x:String>First Item</x:String>
-                    <x:String>Second Item</x:String>
-                    <x:String>Third Item</x:String>
-                    <x:String>Fourth Item</x:String>
-                    <x:String>Fifth Item</x:String>
-                    <x:String>Sixth Item</x:String>
-                </x:Array>
-            </d:ListView.ItemsSource>
-            <ListView.ItemTemplate>
-                <DataTemplate>
-                    <ViewCell>
-                        <StackLayout Padding="10">
-                            <Label Text="{Binding Text}" d:Text="{Binding .}" LineBreakMode="NoWrap" Style="{DynamicResource ListItemTextStyle}" FontSize="16" />
-                            <Label Text="{Binding Description}" d:Text="Item description" LineBreakMode="NoWrap" Style="{DynamicResource ListItemDetailTextStyle}" FontSize="13" />
-                        </StackLayout>
-                    </ViewCell>
-                </DataTemplate>
-            </ListView.ItemTemplate>
-        </ListView>
-    </StackLayout>
+    <ScrollView>
+        <StackLayout x:Name="StackLayout">
+            <Frame CornerRadius="20" Margin="15">
+                <StackLayout >
+                    <Image Source="Hz.png" />
+                    <Label></Label>
+                </StackLayout>
+            </Frame>
+            <Frame CornerRadius="20" Margin="15">
+                <StackLayout>
+                    <Image Source="KM.png" />
+                    <ContentView BackgroundColor="Red" Padding="10" Opacity="0.4">
+                        <Label TextColor="White">A cliff with loopholes</Label>
+                    </ContentView>
+                </StackLayout>
+            </Frame>
+            <Frame CornerRadius="20" Margin="15">
+                <StackLayout>
+                    <Image Source="Palais.png" />
+                    <ContentView BackgroundColor="Red" Padding="10" Opacity="0.4">
+                        <Label TextColor="White">The Duke’s office</Label>
+                    </ContentView>
+                </StackLayout>
+            </Frame>
+        </StackLayout>
+    </ScrollView>
 </ContentPage>
